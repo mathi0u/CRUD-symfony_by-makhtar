@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MedecinController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="grid-container">
+    {% for i,m in app.flashes %}
+        <div class="alert alert-{{i}} alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            {{m.0}}
+        </div>
+    {% endfor %}
+    <h1 class="text-center">Liste des medecins! </h1>
+    <table class="table table-light table-striped table-hover table-responsive-md">
+        <caption>liste medecins</caption>
+        <thead class="thead-inverse">
+            <tr>
+                <th scope="col">Matricule</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Date de Naiss</th>
+                <th scope="col">Service</th>
+                <th scope="col">Specialite</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+            <tbody>
+                {% for med in meds %}
+                    <tr scope="row">
+                        
+                        <td>{{med.matricule}}</td>
+                        <td>{{med.nom}}</td>
+                        <td>{{med.prenom}}</td>
+                        <td>{{med.email}}</td>
+                        <td>{{med.tel }} </td>
+                        <td>{{med.datenaiss|date('d/m/Y')}}</td>
+                        <td>{{med.services.libelle}}</td>
+                        <td>
+                            {% for fcc in med.specialite %}
+                                    {{fcc.libelle}}
+                            {% endfor %}
+                        </td>
+                        <td> 
+                            <a href="{{ path ('medecin_show',{'matricule': med.matricule}) }}" class="btn btn-primary">+ plus ...</a> 
+                            <a href="{{ path ('medecin_edit',{'matricule': med.matricule}) }}" class="btn btn-primary">modifier</a>
+                            <a href="{{ path ('medecin_del',{'matricule': med.matricule}) }}" class="btn btn-danger">X supprimer</a>
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+</div>
+{% endblock %}

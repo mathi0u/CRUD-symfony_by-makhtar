@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MedecinController!{% endblock %}
+
+{% block body %}
+
+<div class="grid-container">
+    <a href="{{ path ('medecins_list') }}" class="btn btn-primary ml-4"><i
+        class="fa fa-arrow-circle-o-left" ></i> precedent </a>
+    <h1 class="text-center">Info sur le medecin {{med.matricule}} </h1>
+    <table class="table table-light table-striped table-hover table-responsive-md">
+        <caption>liste medecins</caption>
+        <thead class="thead-inverse">
+            <tr>
+                <th scope="col">Matricule</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Date de Naiss</th>
+                <th scope="col">Service</th>
+                <th scope="col">Specialite</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row">
+
+                <td>{{med.matricule}}</td>
+                <td>{{med.nom}}</td>
+                <td>{{med.prenom}}</td>
+                <td>{{med.email}}</td>
+                <td>{{med.tel }} </td>
+                <td>{{med.datenaiss|date('d/m/Y')}}</td>
+                <td>{{med.services.libelle}}</td>
+                <td>
+                    {% for fcc in med.specialite %}
+                    {{fcc.libelle}}
+                    {% endfor %}
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="md-3 d-flex flex-row-reverse m-5">
+        <a href="{{ path ('medecin_edit',{'matricule': med.matricule}) }}" class="btn btn-primary">+ modifier</a>
+        <a href="{{ path ('medecin_del',{'matricule': med.matricule}) }}" class="btn btn-danger">X supprimer</a>
+    </div>
+    <div class="row  d-flex flex-row justify-content-center">
+        <div class="col-5 ">
+            <h1 class="texte-center">Planning</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>fdfc</th>
+                        <th>fdfdc</th>
+                        <th>dfdc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row"></td>
+                        <td>dccdc</td>
+                        <td>cdc</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"></td>
+                        <td>cdcd</td>
+                        <td>dcdd</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-5 ">
+            <h1 class="texte-center">infos+</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>fdfc</th>
+                        <th>fdfdc</th>
+                        <th>dfdc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row"></td>
+                        <td>dccdc</td>
+                        <td>cdc</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"></td>
+                        <td>cdcd</td>
+                        <td>dcdd</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

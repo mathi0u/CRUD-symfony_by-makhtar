@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        {#---nav---#}  
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+            <a class="navbar-brand" href="#">TERANGA HOSPITAL</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{path('medecins_list')}}">liste medecins <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('medecin_add')}}">ajout medecin <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('specialite')}}">specialite <span class="sr-only"></span></a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+        {% block body %}   
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+        <footer class="bg-primary row">
+                <div class="col-6">
+                    <ul>
+                        <li>dfsscdscds</li>
+                        <li>dfsscdscds</li>
+                        <li>dfsscdscds</li>
+                        <li>dfsscdscds</li>
+                        <li>dfsscdscds</li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                        <ul>
+                            <li>dfsscdscds</li>
+                            <li>dfsscdscds</li>
+                            <li>dfsscdscds</li>
+                            <li>dfsscdscds</li>
+                            <li>dfsscdscds</li>
+                        </ul>
+                    </div>
+        </footer>
+    </body>
+</html>
