@@ -8,7 +8,7 @@ use App\Form\MedecinType;
 use App\Repository\MedecinRepository;
 use App\Repository\ServicesRepository;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Coooamponent\Routing\Annotation\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
