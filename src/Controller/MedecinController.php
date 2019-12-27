@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 class MedecinController extends Controller
 {
     /**
-     * @Route("/medecins", name="medecins_list")
+     * @Route("/", name="medecins_list")
      */
     public function index(MedecinRepository $repo_m )
     
