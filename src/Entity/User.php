@@ -25,7 +25,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="array")
      */
     private $roles = [];
 
@@ -146,4 +146,6 @@ class User implements UserInterface
 
         return $this;
     }
+
+    
 }

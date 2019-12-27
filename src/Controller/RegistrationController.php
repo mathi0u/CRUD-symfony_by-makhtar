@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegistrationController extends Controller
 {
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/inscription", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -36,7 +36,7 @@ class RegistrationController extends Controller
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('');
+            return $this->redirectToRoute('medecins_list');
         }
 
         return $this->render('registration/register.html.twig', [
